@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    double n;
+    scanf("%lf",&n);
+    int flag=0;
+    if(n<0){
+        flag=1;
+        n *= -1;
+    }
+    double l=0,r=n>1?n:1;
+    while(r-l>1e-8){
+        double x=(l+r)/2;
+        if(x*x*x<n){
+            l=x;
+        }else{
+            r=x;
+        }
+    }
+    if(flag==1){
+        l *= -1;
+    }
+    printf("%lf",l);
+}
